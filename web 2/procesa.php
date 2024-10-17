@@ -10,7 +10,7 @@
       <script src="./adjuntos/js/cliente.js"></script>
     <title>Document</title>
    </head>
-<body id="body1" onclick="cambiarfondobody()">
+<body">
    <header>
         <h1 style="color: green; font-size: 24px; background-color: darkseagreen;"> Mi pagina personal </h1>
         <nav>
@@ -31,33 +31,23 @@
         </nav>
    </header>
    <main>
-        <section>
-            <h1>Titulo seccion 1</h1>
-            <article>
-                <h3 onclick="saludar()"> Titulo articulo  1 de la seccion 1 </h3>
-                <p style="color: rgb(63, 69, 148) ; margin: 20px; padding-top: 10px; background-color: grey ;" id="parrafo1">parrafo 1 del articulo 1, de la seccion 1 </p>
-            </article>
-            <article>
-                <h3>Titulo Articulo 2, de la seccion 1</h3>
-                <p id="parrafo2">Párrafo del articulo 2</p>
-                <button onclick="cambiarparrafo2()">Presioname</button>
-                 
-            </article>
-        </section>
-        <section>
-            <h1> Titulo seccion 2</h1>
-            <article><h3>Titulo articulo 1 de la seccion 2</h3></article>
-            <p>Parrafo de articulo 1 de la seccion 2</p>
-        </section>
-        <div style="width: 100px; height: 100px; background-color:black ;color:white;">
-            cuerpo del div
-        </div>
+        <?php
+            $usuariodb="admin";
+            $contraseñadb="patito123";
+            if($_SERVER["REQUEST_METHOD"]=="POST"){
+                $usr=$_POST['usuario'];
+                $pass=$_POST['password'];
+                if($pass ===$contraseñadb && $usuariodb === $usr){
+                    echo "<h3> Bienvenido, $usr !</h3>";
+                }else{
+                    echo "<h3> Datos incorrectos </h3>";
+                }
+            }
+
+        ?>
+
    </main>
-   <aside>
-        <h4>Informaccion adicional</h4>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quas corrupti, assumenda quis 
-        nisi cupiditate, est qui dignissimos doloribus eos esse ab accusantium? Beatae doloremque adipisci fugit pariatur debitis non ab.</p>
-   </aside>
+ 
    <footer>
         <p> Todos los derechos reservados Fes Aragón 2024</p>
    </footer>
